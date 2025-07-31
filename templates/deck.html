@@ -1,0 +1,13 @@
+{% extends "index.html" %} {% block title %} My Deck {% endblock %} {% block
+deck %}
+<ul>
+  {% for card, count in deck.items() %}
+  <li>{{card}}, {{count}}</li>
+  {% endfor %}
+</ul>
+
+<form action="/export-deck" method="GET">
+  <button type="submit">Export Deck</button>
+</form>
+
+{% endblock %}

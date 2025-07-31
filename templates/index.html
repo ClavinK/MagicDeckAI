@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../static/styles.css" />
+    <title>MagicDeckAI</title>
+  </head>
+  <body>
+    <div class="main-content">
+      <form action="/build-deck" method="POST">
+        <button type="submit">Deck Builder</button>
+      </form>
+      <form action="/search-card" method="POST">
+        <input type="text" id="card" name="card" />
+        <input type="submit" value="Submit" />
+      </form>
+      <div class="images">
+        {% for card_id, card in cards.items() %} {% if deck_build %}
+        <a href="/add_to_deck/{{ card_id }}">
+          <img src="{{ card.image_url }}" />
+        </a>
+        {% else %}
+        <a href="/card-info/{{ card_id }}">
+          <img src="{{ card.image_url }}" />
+        </a>
+        {% endif %} {% endfor %}
+      </div>
+    </div>
+    <div>{{ info }}</div>
+    <div class="deck">
+      <div>{%block title%}{%endblock%}</div>
+      <div>{%block deck%}{%endblock%}</div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,17 @@
+body{
+    background-color: gray;
+    display: flex;
+    align-items: flex-start
+}
+
+.main-content {
+    flex: 2;
+}
+
+.deck {
+    flex: 1;
+    margin-left: 40px;
+    padding: 20px;
+    min-width: 250px;
+    border-radius: 8px;
+}
