@@ -2,11 +2,16 @@ import pyperclip
 from flask import Flask, render_template, request, session
 from services.scryfall_api import search_cards, get_info, get_card_name
 from models.deck import Deck
+import sqlalchemy
+from dotenv import load_dotenv
+import os
+
+load_dotenv()
 
 app = Flask(__name__, template_folder='./templates')
 # flask --app main run
 
-app.secret_key = "30422eb857c6fed8e2f5199605763db507403262f591dc4c58768200fe8045f6"
+app.secret_key = os.getenv("COOKIE_KEY")
 
 # Interface
 @app.route("/")
